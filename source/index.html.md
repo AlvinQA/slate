@@ -4,46 +4,60 @@ title: API Reference
 language_tabs: # must be one of https://git.io/vQNgJ
   - curl
 
+toc_footers:
+  - <a href='http://surveillus.com/privacy-policy/'>Privacy Policy</a>
+  - <a href='#'>API V 0.0.12</a>
+
 includes:
   - exhibits
+  - associations
   - cameras
   - subscriptions
   - triggers
-  - associations
-  - testing
-  - errors
 
 search: true
 ---
 
 # Introduction
 
-Welcome to the Surveillus API documentation! You can use our API to access Surveillus API endpoints, which can get information on various..
+Welcome to the Surveillus API documentation.  
 
-The Surveillus API provides client access to...
+The API documentation contains a general overview about the design and technology that has been implemented, followed by reference information about specific endpoints.
+
+The purpose of our API is to make it easy to add video and image features to your web or mobile app. We want this API to be useful to you. If you run into any problems please feel free to <a href='http://surveillus.com/contact/'>contact</a> us.
+
+Our API is under active development, and we plan to continue to release more functionality.
+
+## API Base
 
 The base address for Surveillus API is https://dev.surveillus.com/mist
 
 ## Authentication
 
-> To authorize, use this code:
+> To authenticate, use this code:
 
 ```shell
-# With shell, you can just pass the correct header with each request
-curl "https://dev.surveillus.com/api/authenticate"
-  -H "Authorization: Bearer $TOKEN"
+curl "https://dev.surveillus.com/mist/authenticate"
+  -H "Content-Type: application/json"
+  -d "apikey=ezEjgGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXNjcmlwdGlvbiI6IlFBIGxvY2FsIEFQSSBLZXkiLCJhcHBsaWNhdGlvbk5hbWUiOiJRQXMgTWFnaWMgS2V5IiwicHJvY1R5cGUiOiJsb2NhbCIsImF1dGhUeX2DIjoiYXBpa2V5IiwidXVpZCI6InQ1dE5lSzNsVmNzVkpuSEIiLCJpYXQiOjE1NDk0MTQwNjQsImF1ZCI6InByZS1BbHBoYSIsImlzcyI6IlN1cnZlaWxsdXMgRGV2ZWxvcG1lbnQiLCJzdJBiOiJBUEkgQWNjZXNzIn0.SUrut-yYfOZOXnLSetb82Lln2oeofSEtrK-itW3xoEjY"
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+> The above command returns:
+
+```json
+{
+    "jwtToken": "eyHhbGciOiJZUzI1NiIsInR6cCI6IkpXVCJ9.eyJhdXRoVH2wZSI6InRva3UuIiwiY29tbWVudCI6IlJlbW90ZSBMb2NrIJzzWXIgT25lIiwibG9ja1N0XYRlSWQiOiJPbmUiLCJ1dWlkIjoiUjI3c1ZaOEhXaU5DdFRCMiIsInN1YiI6IkFQSSBBY2Nlc3MiLCJpc3N1ZXIiOiJTdXJ2ZWlsbHTvIERldmVsb3BtZW50IiwiYXVkaWVuY2UiOiJwcmUtQWxwaGiLCJzdWJqZWN0IjoiQVBJIEFjY2VzcyIsImV4cGlyZXNJbiI6IjI0aCIsImlhdCI6MTU0OTY2OTkzMiwiZXhwIjoxNTQ5NzU2MzMyfQ.Xv7Md43ZuC4GaWdi822WdDx78pa_QcM7_wkHjWgumuI"
+}
+```
 
 Surveillus uses API keys to allow access to the API. In order to interact with the Surveillus API, you or your application must first authenticate. All requests to our API require authentication either through a given username/password or an API key.
 
-Surveillus expects for the API key to be included in all API requests to the server in a header that looks like the following:
+Surveillus expects for the jwtToken to be included in all API requests to the server in a header that looks like the following:
 
-`Authorization: Bearer $TOKEN`
+`Authorization: Bearer $jwtToken`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+Use this API to authenticate and get a jwtToken to use with other API calls that need a token for security.
 </aside>
 
 
@@ -60,3 +74,15 @@ DELETE | Removes a specified object
 
 ## Responses
 
+The Surveillus API uses the following error responses:
+
+Error Code | Meaning
+---------- | -------
+400 | Bad Request -- There was something wrong with your request.
+401 | Unauthorized -- Your API key is incorrect.
+403 | Forbidden -- You do not have access to the requested resource.
+404 | Not Found -- The specified resource could not be found.
+405 | Method Not Allowed -- You tried to access a resource with an invalid method.
+429 | Too Many Requests -- You've made too many API requests in a short time
+500 | Internal Server Error -- There was an issue on our end. Please try your request again.
+503 | Service Unavailable -- The API is offline for maintenance. Please try again later.
