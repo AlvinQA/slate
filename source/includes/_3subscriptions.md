@@ -13,7 +13,7 @@ This endpoint retrieves all subscriptions.
 ## Create a subscription
 
 ```shell
-curl -X POST "http://dev.surveillus.com/mist/subscription"
+curl -X POST "http://www.example.com/mist/subscription"
   -H "Authorization: Bearer $jwtToken"
   -d " "
   -d " "
@@ -24,7 +24,7 @@ This endpoint creates a subscription.
 
 ### HTTP Request
 
-`POST /subscription`
+`POST /mist/subscription`
 
 ## Get a subscription
 
@@ -32,7 +32,7 @@ This endpoint retrieves a specific subscription.
 
 ### HTTP Request
 
-`GET /subscription/:Id`
+`GET /mist/subscription/:Id`
 
 ## Edit a subscription
 
@@ -40,7 +40,7 @@ This endpoint updates a specific subscription.
 
 ### HTTP Request
 
-`PUT /subscription`
+`PUT /mist/subscription`
 
 ## Delete a subscription
 
@@ -48,4 +48,4 @@ This endpoint deletes a specific subscription.
 
 ### HTTP Request
 
-`DELETE /subscription/:Id`
+`DELETE /mist/subscription/:Id`

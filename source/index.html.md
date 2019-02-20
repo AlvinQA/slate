@@ -26,18 +26,16 @@ The API documentation contains a general overview about the design and technolog
 
 The purpose of our API is to make it easy to add video and image features to your web or mobile app. We want this API to be useful to you. If you run into any problems please feel free to <a href='http://surveillus.com/contact/'>contact</a> us.
 
-Our API is under active development, and we plan to continue to release more functionality.
-
 ## API Base
 
-The base address for Surveillus API is https://dev.surveillus.com/mist
+The base address for Surveillus API will be provided to you.
 
 ## Authentication
 
 > To authenticate, use this code:
 
 ```shell
-curl "https://dev.surveillus.com/mist/authenticate"
+curl "https://www.example.com/mist/authenticate"
   -H "Content-Type: application/json"
   -d "apikey=ezEjgGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXNjcmlwdGlvbiI6IlFBIGxvY2FsIEFQSSBLZXkiLCJhcHBsaWNhdGlvbk5hbWUiOiJRQXMgTWFnaWMgS2V5IiwicHJvY1R5cGUiOiJsb2NhbCIsImF1dGhUeX2DIjoiYXBpa2V5IiwidXVpZCI6InQ1dE5lSzNsVmNzVkpuSEIiLCJpYXQiOjE1NDk0MTQwNjQsImF1ZCI6InByZS1BbHBoYSIsImlzcyI6IlN1cnZlaWxsdXMgRGV2ZWxvcG1lbnQiLCJzdJBiOiJBUEkgQWNjZXNzIn0.SUrut-yYfOZOXnLSetb82Lln2oeofSEtrK-itW3xoEjY"
 ```
@@ -50,16 +48,19 @@ curl "https://dev.surveillus.com/mist/authenticate"
 }
 ```
 
-Surveillus uses API keys to allow access to the API. In order to interact with the Surveillus API, you or your application must first authenticate. All requests to our API require authentication either through a given username/password or an API key.
+Surveillus uses API keys to allow access to the API. In order to interact with the Surveillus API, you or your application must first authenticate. All requests to our API require authentication through a given API key.
 
-Surveillus expects for the jwtToken to be included in all API requests to the server in a header that looks like the following:
+JSON Web Tokens (JWT) are a standard way of representing security claims between your application and Surveillus API. To generate new tokens you need to authenticate using an API key.  Surveillus expects for the jwtToken to be included in all API requests to the server in a header that looks like the following:
 
 `Authorization: Bearer $jwtToken`
+
+### HTTP Request
+
+`POST /mist/authenticate`
 
 <aside class="notice">
 Use this API to authenticate and get a jwtToken to use with other API calls that need a token for security.
 </aside>
-
 
 ## Requests
 

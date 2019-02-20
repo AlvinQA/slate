@@ -8,7 +8,7 @@ This endpoint retrieves all triggers.
 
 ### HTTP Request
 
-`GET /trigger`
+`GET /mist/trigger`
 
 ## Create a trigger
 
@@ -16,14 +16,14 @@ This endpoint creates a trigger.
 
 ### HTTP Request
 
-`POST /trigger`
+`POST /mist/trigger`
 
 ### Parameters
 
-Parameter | Type | Description
+Name | Type | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+something | false | Describes something.
+another thing | true | Describes another thing.
 
 ## Get a trigger
 
@@ -31,7 +31,7 @@ This endpoint retrieves a specific trigger.
 
 ### HTTP Request
 
-`GET /trigger/:Id
+`GET /mist/trigger/:Id`
 
 ## Edit a trigger
 
@@ -39,14 +39,14 @@ This endpoint updates a specific trigger.
 
 ### HTTP Request
 
-`PUT /trigger/:Id`
+`PUT /mist/trigger/:Id`
 
 ### Parameters
 
-Parameter | Type | Description
+Name | Type | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+something | false | Describes something.
+another thing | true | Describes another thing.
 
 ## Delete a trigger
 
@@ -54,4 +54,4 @@ This endpoint deletes a specific trigger.
 
 ### HTTP Request
 
-`DELETE /trigger/:Id`
+`DELETE /mist/trigger/:Id`

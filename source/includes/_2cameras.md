@@ -3,7 +3,7 @@
 ## Get all cameras
 
 ```shell
-curl "http://https://dev.surveillus.com/camera"
+curl "http://www.example.com/camera"
   -H "Authorization: Bearer $TOKEN"
 ```
 
@@ -32,7 +32,7 @@ This endpoint retrieves all cameras.
 
 ### HTTP Request
 
-`GET /camera`
+`GET /mist/camera`
 
 <aside class="success">
 Remember — a happy kitten is an authenticated kitten!
@@ -41,7 +41,7 @@ Remember — a happy kitten is an authenticated kitten!
 ## Get a camera
 
 ```shell
-curl "http://dev.surveillus.com/mist/mist/camera/2"
+curl "http://www.example.com//mist/camera/2"
   -H "Authorization: Bearer $TOKEN"
 ```
 
@@ -63,12 +63,12 @@ This endpoint retrieves a specific camera.
 
 ### HTTP Request
 
-`GET /camera/:Id`
+`GET /mist/camera/:Id`
 
 ## Add a Camera
 
 ```shell
-curl -X POST "http://dev.surveillus.com/camera"
+curl -X POST "http://www.example.com/mist/camera"
   -H "Authorization: Bearer $jwtToken"
   -d "name= "
   -d ""
@@ -91,7 +91,7 @@ This endpoint adds a camera
 
 ### HTTP Request
 
-`POST /camera`
+`POST /mist/camera`
 
 ### Parameters
 
@@ -104,7 +104,7 @@ IP Address | string | If set to false, the result will include kittens that have
 ## Update a camera
 
 ```shell
-curl -X PUT "http://dev.surveillus.com/camera"
+curl -X PUT "http://www.example.com/mist/camera"
   -H "Authorization: Bearer $jwtToken"
   -d "name= "
   -d ""
@@ -127,19 +127,19 @@ This endpoint updates a specific camera
 
 ### HTTP Request
 
-`PUT camera/:id`
+`PUT /mist/camera/:id`
 
 ### Parameters
 
 Name | Type | Description
 --------- | ------- | -----------
-something | false | some description
-something | true | some description
+something | false | Describes something.
+another thing | true | Describes another thing.
 
 ## Delete a camera
 
 ```shell
-curl "http://dev.surveillus.com/mist/camera/1"
+curl "http://www.example.com/mist/camera/1"
   -X DELETE
   -H "Authorization: Bearer $TOKEN"
 ```
@@ -157,4 +157,4 @@ This endpoint deletes a specific camera.
 
 ### HTTP Request
 
-`DELETE camera/:id`
+`DELETE /mist/camera/:id`
